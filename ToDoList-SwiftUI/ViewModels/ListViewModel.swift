@@ -16,7 +16,7 @@ class ListViewModel: ObservableObject {
         getItems()
     }
     
-    func getItems() {
+    private func getItems() {
         let _items: [ItemModel] = [ItemModel(title: "Buy groceries", isCompleted: true), ItemModel(title: "Walk a mile", isCompleted: false), ItemModel(title: "Finish homework", isCompleted: true)]
         items.append(contentsOf: _items)
     }
@@ -49,6 +49,10 @@ class ListViewModel: ObservableObject {
         // Insert items at the adjusted destination index
         items.insert(contentsOf: movingItems, at: destinationIndex)
             
+    }
+    
+    func addItem(title: String) {
+        items.append(ItemModel(title: title, isCompleted: false))
     }
 
 }
